@@ -54,8 +54,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/rknn_yolov8_demo.dir/DependInfo.cmake"
-  "CMakeFiles/rknn_yolov8_demo_zero_copy.dir/DependInfo.cmake"
+  "CMakeFiles/my_yolo_visdrone.dir/DependInfo.cmake"
+  "CMakeFiles/my_yolo_visdrone_zero_copy.dir/DependInfo.cmake"
   "utils.out/CMakeFiles/fileutils.dir/DependInfo.cmake"
   "utils.out/CMakeFiles/imagedrawing.dir/DependInfo.cmake"
   "utils.out/CMakeFiles/imageutils.dir/DependInfo.cmake"

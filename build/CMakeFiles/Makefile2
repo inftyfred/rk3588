@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/infty/rk3588/rknn_prj/my_prj/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/rknn_yolov8_demo.dir/all
-all: CMakeFiles/rknn_yolov8_demo_zero_copy.dir/all
+all: CMakeFiles/my_yolo_visdrone.dir/all
+all: CMakeFiles/my_yolo_visdrone_zero_copy.dir/all
 all: 3rdparty.out/all
 all: utils.out/all
 .PHONY : all
@@ -75,8 +75,8 @@ preinstall: utils.out/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/rknn_yolov8_demo.dir/clean
-clean: CMakeFiles/rknn_yolov8_demo_zero_copy.dir/clean
+clean: CMakeFiles/my_yolo_visdrone.dir/clean
+clean: CMakeFiles/my_yolo_visdrone_zero_copy.dir/clean
 clean: 3rdparty.out/clean
 clean: utils.out/clean
 .PHONY : clean
@@ -118,60 +118,60 @@ utils.out/clean: utils.out/CMakeFiles/audioutils.dir/clean
 .PHONY : utils.out/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/rknn_yolov8_demo.dir
+# Target rules for target CMakeFiles/my_yolo_visdrone.dir
 
 # All Build rule for target.
-CMakeFiles/rknn_yolov8_demo.dir/all: utils.out/CMakeFiles/fileutils.dir/all
-CMakeFiles/rknn_yolov8_demo.dir/all: utils.out/CMakeFiles/imagedrawing.dir/all
-CMakeFiles/rknn_yolov8_demo.dir/all: utils.out/CMakeFiles/imageutils.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles --progress-num=9,10,11,12 "Built target rknn_yolov8_demo"
-.PHONY : CMakeFiles/rknn_yolov8_demo.dir/all
+CMakeFiles/my_yolo_visdrone.dir/all: utils.out/CMakeFiles/fileutils.dir/all
+CMakeFiles/my_yolo_visdrone.dir/all: utils.out/CMakeFiles/imagedrawing.dir/all
+CMakeFiles/my_yolo_visdrone.dir/all: utils.out/CMakeFiles/imageutils.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles --progress-num=9,10,11,12 "Built target my_yolo_visdrone"
+.PHONY : CMakeFiles/my_yolo_visdrone.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/rknn_yolov8_demo.dir/rule: cmake_check_build_system
+CMakeFiles/my_yolo_visdrone.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles 10
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rknn_yolov8_demo.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/my_yolo_visdrone.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles 0
-.PHONY : CMakeFiles/rknn_yolov8_demo.dir/rule
+.PHONY : CMakeFiles/my_yolo_visdrone.dir/rule
 
 # Convenience name for target.
-rknn_yolov8_demo: CMakeFiles/rknn_yolov8_demo.dir/rule
-.PHONY : rknn_yolov8_demo
+my_yolo_visdrone: CMakeFiles/my_yolo_visdrone.dir/rule
+.PHONY : my_yolo_visdrone
 
 # clean rule for target.
-CMakeFiles/rknn_yolov8_demo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/clean
-.PHONY : CMakeFiles/rknn_yolov8_demo.dir/clean
+CMakeFiles/my_yolo_visdrone.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/clean
+.PHONY : CMakeFiles/my_yolo_visdrone.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/rknn_yolov8_demo_zero_copy.dir
+# Target rules for target CMakeFiles/my_yolo_visdrone_zero_copy.dir
 
 # All Build rule for target.
-CMakeFiles/rknn_yolov8_demo_zero_copy.dir/all: utils.out/CMakeFiles/fileutils.dir/all
-CMakeFiles/rknn_yolov8_demo_zero_copy.dir/all: utils.out/CMakeFiles/imagedrawing.dir/all
-CMakeFiles/rknn_yolov8_demo_zero_copy.dir/all: utils.out/CMakeFiles/imageutils.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles --progress-num=13,14,15,16 "Built target rknn_yolov8_demo_zero_copy"
-.PHONY : CMakeFiles/rknn_yolov8_demo_zero_copy.dir/all
+CMakeFiles/my_yolo_visdrone_zero_copy.dir/all: utils.out/CMakeFiles/fileutils.dir/all
+CMakeFiles/my_yolo_visdrone_zero_copy.dir/all: utils.out/CMakeFiles/imagedrawing.dir/all
+CMakeFiles/my_yolo_visdrone_zero_copy.dir/all: utils.out/CMakeFiles/imageutils.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles --progress-num=13,14,15,16 "Built target my_yolo_visdrone_zero_copy"
+.PHONY : CMakeFiles/my_yolo_visdrone_zero_copy.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/rknn_yolov8_demo_zero_copy.dir/rule: cmake_check_build_system
+CMakeFiles/my_yolo_visdrone_zero_copy.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles 10
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/rknn_yolov8_demo_zero_copy.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/my_yolo_visdrone_zero_copy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles 0
-.PHONY : CMakeFiles/rknn_yolov8_demo_zero_copy.dir/rule
+.PHONY : CMakeFiles/my_yolo_visdrone_zero_copy.dir/rule
 
 # Convenience name for target.
-rknn_yolov8_demo_zero_copy: CMakeFiles/rknn_yolov8_demo_zero_copy.dir/rule
-.PHONY : rknn_yolov8_demo_zero_copy
+my_yolo_visdrone_zero_copy: CMakeFiles/my_yolo_visdrone_zero_copy.dir/rule
+.PHONY : my_yolo_visdrone_zero_copy
 
 # clean rule for target.
-CMakeFiles/rknn_yolov8_demo_zero_copy.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/clean
-.PHONY : CMakeFiles/rknn_yolov8_demo_zero_copy.dir/clean
+CMakeFiles/my_yolo_visdrone_zero_copy.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/clean
+.PHONY : CMakeFiles/my_yolo_visdrone_zero_copy.dir/clean
 
 #=============================================================================
 # Target rules for target utils.out/CMakeFiles/fileutils.dir

@@ -23,7 +23,7 @@
 
 #include <set>
 #include <vector>
-#define LABEL_NALE_TXT_PATH "./model/VisDrone_labels.txt"
+#define LABEL_NALE_TXT_PATH "/root/my_deploy_c/install/model/VisDrone_labels.txt"
 
 static char *labels[OBJ_CLASS_NUM];
 
@@ -433,6 +433,83 @@ static int process_fp32(float *box_tensor, float *score_tensor, float *score_sum
 }
 
 
+
+/*
+static int process_fp32(float *box_tensor, float *score_tensor, float *score_sum_tensor, 
+                        int grid_h, int grid_w, int stride, int dfl_len,
+                        std::vector<float> &boxes, 
+                        std::vector<float> &objProbs, 
+                        std::vector<int> &classId, 
+                        float threshold) 
+
+用于解析输出的数据
+data_sum output->buf 大小：1,14,8400
+boxes用于储存框的信息：left top w h
+objProbs 得分
+classID 类别 0～10
+threhold 置信度阈值
+*/
+
+static int data_process(void *data_sum,std::vector<float> &boxes, 
+                        std::vector<float> &objProbs, 
+                        std::vector<int> &classId,float threshold)
+{
+    int validCount = 0;
+    int model_in_w = 640;//app_ctx->model_width;//640
+    int model_in_h = 640;//app_ctx->model_height; //640
+    //int stride = 0;
+    //_data_sum -> 14*8400
+    float *_data_sum = (float *)data_sum; //14*8400
+
+    for (int i = 0; i < 8400; ++i) {
+        int offset = i;
+
+        //box
+        float x = _data_sum[offset];
+        float y = _data_sum[offset+8400];
+        float w = _data_sum[offset+8400*2];
+        float h = _data_sum[offset+8400*3];
+        
+        
+        //寻找最高分
+        offset+=8400*4;
+        float max_score = _data_sum[offset];
+        int max_class = 0;
+        for(int j=1; j<10; ++j)
+        {
+            offset += j*8400;
+            if(_data_sum[offset] > max_score)
+            {
+                max_score = _data_sum[offset];
+                max_class = j;
+            }
+        }
+        if(max_score > threshold)
+        {
+            objProbs.push_back(max_score);
+            classId.push_back(max_class);
+            int left = (x-w/2);
+            int top = (y-h/2);
+            boxes.push_back(left);
+            boxes.push_back(top);
+            boxes.push_back(w);
+            boxes.push_back(h);
+            validCount++;//有效目标+1
+        }
+        else
+        {
+            //无目标
+            continue;
+        }
+        //第一列完成
+    }
+    return validCount;
+}
+
+
+
+
+
 #if defined(RV1106_1103)
 static int process_i8_rv1106(int8_t *box_tensor, int32_t box_zp, float box_scale,
                              int8_t *score_tensor, int32_t score_zp, float score_scale,
@@ -508,7 +585,7 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
 #if defined(RV1106_1103) 
     rknn_tensor_mem **_outputs = (rknn_tensor_mem **)outputs;
 #else
-    rknn_output *_outputs = (rknn_output *)outputs; //1*14*8400
+    rknn_output *_outputs = (rknn_output *)outputs; //14*8400
 #endif
     std::vector<float> filterBoxes;
     std::vector<float> objProbs;
@@ -517,8 +594,8 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
     int stride = 0;
     int grid_h = 0;
     int grid_w = 0;
-    int model_in_w = app_ctx->model_width;
-    int model_in_h = app_ctx->model_height;
+    int model_in_w = app_ctx->model_width;//640
+    int model_in_h = app_ctx->model_height; //640
 
     memset(od_results, 0, sizeof(object_detect_result_list));
 
@@ -527,9 +604,9 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
     int dfl_len = app_ctx->output_attrs[0].dims[2] / 4;
 #else
     int dfl_len = app_ctx->output_attrs[0].dims[2] /4; //14/4 = 3  2100
-    printf("\n  dfl_len:%d \n",dfl_len);
+    //printf("\n  dfl_len:%d \n",dfl_len);
 #endif
-    int output_per_branch = app_ctx->io_num.n_output / 1;//3
+    int output_per_branch = 1;//app_ctx->io_num.n_output / 1;//3
     //printf("\n\n output branch = app_ctx->io_num.n_output / 3 = %d \n\n",output_per_branch); 1/3 = 0
     for (int i = 0; i < 1; i++)
     {
@@ -563,10 +640,14 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
 
 #else
         void *score_sum = nullptr;
+        //void *data_sum = nullptr;
         int32_t score_sum_zp = 0;
         float score_sum_scale = 1.0;
-        if (output_per_branch == 1){
-            score_sum = _outputs[0].buf;
+        //data_sum = _outputs[0].buf;
+        //data_process(data_sum);
+
+        if (output_per_branch == 2){
+            score_sum = _outputs[0].buf; //14*8400 
             score_sum_zp = app_ctx->output_attrs[0].zp;
             score_sum_scale = app_ctx->output_attrs[0].scale;
         }
@@ -577,8 +658,8 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
         grid_h = app_ctx->output_attrs[box_idx].dims[1];
         grid_w = app_ctx->output_attrs[box_idx].dims[0];
 #else
-        grid_h = app_ctx->output_attrs[box_idx].dims[2];
-        grid_w = app_ctx->output_attrs[box_idx].dims[3];
+        grid_h = app_ctx->output_attrs[0].dims[1];//14
+        grid_w = app_ctx->output_attrs[0].dims[2];//8400
 #endif
         stride = model_in_h / grid_h;
 
@@ -600,9 +681,11 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
         }
         else
         {
-            validCount += process_fp32((float *)_outputs[box_idx].buf, (float *)_outputs[score_idx].buf, (float *)score_sum,
-                                       grid_h, grid_w, stride, dfl_len, 
-                                       filterBoxes, objProbs, classId, conf_threshold);
+            // validCount += process_fp32((float *)_outputs[box_idx].buf, (float *)_outputs[score_idx].buf, (float *)score_sum,
+            //                            grid_h, grid_w, stride, dfl_len, 
+            //                            filterBoxes, objProbs, classId, conf_threshold);
+            validCount += data_process(_outputs[0].buf,filterBoxes,objProbs,classId,conf_threshold);
+            printf("\n validCount befor nms:%d \n",validCount);
         }
 #endif
     }
@@ -654,6 +737,7 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
         last_count++;
     }
     od_results->count = last_count;
+    printf("\n validCount after nms:%d \n",last_count);
     return 0;
 }
 
@@ -696,3 +780,9 @@ void deinit_post_process()
         }
     }
 }
+
+
+
+
+
+

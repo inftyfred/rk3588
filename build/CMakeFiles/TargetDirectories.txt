@@ -1,5 +1,5 @@
-/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/rknn_yolov8_demo.dir
-/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/rknn_yolov8_demo_zero_copy.dir
+/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/my_yolo_visdrone.dir
+/home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/my_yolo_visdrone_zero_copy.dir
 /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/edit_cache.dir
 /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/rebuild_cache.dir
 /home/infty/rk3588/rknn_prj/my_prj/build/CMakeFiles/list_install_components.dir

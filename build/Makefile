@@ -162,30 +162,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named rknn_yolov8_demo
+# Target rules for targets named my_yolo_visdrone
 
 # Build rule for target.
-rknn_yolov8_demo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rknn_yolov8_demo
-.PHONY : rknn_yolov8_demo
+my_yolo_visdrone: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_yolo_visdrone
+.PHONY : my_yolo_visdrone
 
 # fast build rule for target.
-rknn_yolov8_demo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/build
-.PHONY : rknn_yolov8_demo/fast
+my_yolo_visdrone/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/build
+.PHONY : my_yolo_visdrone/fast
 
 #=============================================================================
-# Target rules for targets named rknn_yolov8_demo_zero_copy
+# Target rules for targets named my_yolo_visdrone_zero_copy
 
 # Build rule for target.
-rknn_yolov8_demo_zero_copy: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 rknn_yolov8_demo_zero_copy
-.PHONY : rknn_yolov8_demo_zero_copy
+my_yolo_visdrone_zero_copy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_yolo_visdrone_zero_copy
+.PHONY : my_yolo_visdrone_zero_copy
 
 # fast build rule for target.
-rknn_yolov8_demo_zero_copy/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build
-.PHONY : rknn_yolov8_demo_zero_copy/fast
+my_yolo_visdrone_zero_copy/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/build
+.PHONY : my_yolo_visdrone_zero_copy/fast
 
 #=============================================================================
 # Target rules for targets named fileutils
@@ -244,8 +244,8 @@ main.o: main.cc.o
 
 # target to build an object file
 main.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/main.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/main.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/main.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/main.cc.o
 .PHONY : main.cc.o
 
 main.i: main.cc.i
@@ -253,8 +253,8 @@ main.i: main.cc.i
 
 # target to preprocess a source file
 main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/main.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/main.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/main.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/main.cc.i
 .PHONY : main.cc.i
 
 main.s: main.cc.s
@@ -262,8 +262,8 @@ main.s: main.cc.s
 
 # target to generate assembly for a file
 main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/main.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/main.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/main.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/main.cc.s
 .PHONY : main.cc.s
 
 postprocess.o: postprocess.cc.o
@@ -271,8 +271,8 @@ postprocess.o: postprocess.cc.o
 
 # target to build an object file
 postprocess.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/postprocess.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/postprocess.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/postprocess.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/postprocess.cc.o
 .PHONY : postprocess.cc.o
 
 postprocess.i: postprocess.cc.i
@@ -280,8 +280,8 @@ postprocess.i: postprocess.cc.i
 
 # target to preprocess a source file
 postprocess.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/postprocess.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/postprocess.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/postprocess.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/postprocess.cc.i
 .PHONY : postprocess.cc.i
 
 postprocess.s: postprocess.cc.s
@@ -289,8 +289,8 @@ postprocess.s: postprocess.cc.s
 
 # target to generate assembly for a file
 postprocess.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/postprocess.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/postprocess.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/postprocess.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/postprocess.cc.s
 .PHONY : postprocess.cc.s
 
 rknpu2/yolov8.o: rknpu2/yolov8.cc.o
@@ -298,7 +298,7 @@ rknpu2/yolov8.o: rknpu2/yolov8.cc.o
 
 # target to build an object file
 rknpu2/yolov8.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/rknpu2/yolov8.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/rknpu2/yolov8.cc.o
 .PHONY : rknpu2/yolov8.cc.o
 
 rknpu2/yolov8.i: rknpu2/yolov8.cc.i
@@ -306,7 +306,7 @@ rknpu2/yolov8.i: rknpu2/yolov8.cc.i
 
 # target to preprocess a source file
 rknpu2/yolov8.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/rknpu2/yolov8.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/rknpu2/yolov8.cc.i
 .PHONY : rknpu2/yolov8.cc.i
 
 rknpu2/yolov8.s: rknpu2/yolov8.cc.s
@@ -314,7 +314,7 @@ rknpu2/yolov8.s: rknpu2/yolov8.cc.s
 
 # target to generate assembly for a file
 rknpu2/yolov8.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo.dir/build.make CMakeFiles/rknn_yolov8_demo.dir/rknpu2/yolov8.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone.dir/build.make CMakeFiles/my_yolo_visdrone.dir/rknpu2/yolov8.cc.s
 .PHONY : rknpu2/yolov8.cc.s
 
 rknpu2/yolov8_zero_copy.o: rknpu2/yolov8_zero_copy.cc.o
@@ -322,7 +322,7 @@ rknpu2/yolov8_zero_copy.o: rknpu2/yolov8_zero_copy.cc.o
 
 # target to build an object file
 rknpu2/yolov8_zero_copy.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/rknpu2/yolov8_zero_copy.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/rknpu2/yolov8_zero_copy.cc.o
 .PHONY : rknpu2/yolov8_zero_copy.cc.o
 
 rknpu2/yolov8_zero_copy.i: rknpu2/yolov8_zero_copy.cc.i
@@ -330,7 +330,7 @@ rknpu2/yolov8_zero_copy.i: rknpu2/yolov8_zero_copy.cc.i
 
 # target to preprocess a source file
 rknpu2/yolov8_zero_copy.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/rknpu2/yolov8_zero_copy.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/rknpu2/yolov8_zero_copy.cc.i
 .PHONY : rknpu2/yolov8_zero_copy.cc.i
 
 rknpu2/yolov8_zero_copy.s: rknpu2/yolov8_zero_copy.cc.s
@@ -338,7 +338,7 @@ rknpu2/yolov8_zero_copy.s: rknpu2/yolov8_zero_copy.cc.s
 
 # target to generate assembly for a file
 rknpu2/yolov8_zero_copy.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/rknn_yolov8_demo_zero_copy.dir/build.make CMakeFiles/rknn_yolov8_demo_zero_copy.dir/rknpu2/yolov8_zero_copy.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_yolo_visdrone_zero_copy.dir/build.make CMakeFiles/my_yolo_visdrone_zero_copy.dir/rknpu2/yolov8_zero_copy.cc.s
 .PHONY : rknpu2/yolov8_zero_copy.cc.s
 
 # Help Target
@@ -357,8 +357,8 @@ help:
 	@echo "... fileutils"
 	@echo "... imagedrawing"
 	@echo "... imageutils"
-	@echo "... rknn_yolov8_demo"
-	@echo "... rknn_yolov8_demo_zero_copy"
+	@echo "... my_yolo_visdrone"
+	@echo "... my_yolo_visdrone_zero_copy"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

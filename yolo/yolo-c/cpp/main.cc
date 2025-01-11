@@ -43,11 +43,15 @@ int main(int argc, char **argv)
     const char *model_path = argv[1];
     const char *image_path = argv[2];
 
+    
+
     int ret;
     rknn_app_context_t rknn_app_ctx;
     memset(&rknn_app_ctx, 0, sizeof(rknn_app_context_t));
 
     init_post_process();
+
+   
 
     ret = init_yolov8_model(model_path, &rknn_app_ctx);
     if (ret != 0)
@@ -80,12 +84,17 @@ int main(int argc, char **argv)
 
     object_detect_result_list od_results;
 
+/* inference_yolov8_model:Segmentation fault */
+    printf("inference begin \n");
+
     ret = inference_yolov8_model(&rknn_app_ctx, &src_image, &od_results);
     if (ret != 0)
     {
         printf("init_yolov8_model fail! ret=%d\n", ret);
         goto out;
     }
+
+    printf("end inference\n");
 
     // 画框和概率
     char text[256];

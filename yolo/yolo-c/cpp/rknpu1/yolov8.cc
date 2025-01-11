@@ -177,6 +177,7 @@ int inference_yolov8_model(rknn_app_context_t *app_ctx, image_buffer_t *img, obj
     memset(inputs, 0, sizeof(inputs));
     memset(outputs, 0, sizeof(outputs));
 
+
     // Pre Process
     dst_img.width = app_ctx->model_width;
     dst_img.height = app_ctx->model_height;
@@ -188,6 +189,9 @@ int inference_yolov8_model(rknn_app_context_t *app_ctx, image_buffer_t *img, obj
         printf("malloc buffer size:%d fail!\n", dst_img.size);
         return -1;
     }
+
+
+    printf(" whc:%d,%d,%d \n",app_ctx->model_width,app_ctx->model_height,app_ctx->model_channel);
 
     // letterbox
     ret = convert_image_with_letterbox(img, &dst_img, &letter_box, bg_color);
@@ -212,13 +216,15 @@ int inference_yolov8_model(rknn_app_context_t *app_ctx, image_buffer_t *img, obj
     }
 
     // Run
-    printf("rknn_run\n");
+    printf("rknn_run123\n");
     ret = rknn_run(app_ctx->rknn_ctx, nullptr);
     if (ret < 0)
     {
         printf("rknn_run fail! ret=%d\n", ret);
         return -1;
     }
+
+    printf("run done\n");
 
     // Get Output
     memset(outputs, 0, sizeof(outputs));
@@ -234,6 +240,8 @@ int inference_yolov8_model(rknn_app_context_t *app_ctx, image_buffer_t *img, obj
         goto out;
     }
 
+    printf("output got\n");
+    //outputs -> 1,14,8400,
     // Post Process
     post_process(app_ctx, outputs, &letter_box, box_conf_threshold, nms_threshold, od_results);
 

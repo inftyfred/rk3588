@@ -30,7 +30,7 @@ TARGET_ARCH="aarch64"
 BUILD_TYPE="Release"
 # Build with Address Sanitizer for memory check, BUILD_TYPE need set to Debug
 ENABLE_ASAN="OFF"
-DISABLE_RGA="OFF"
+DISABLE_RGA="ON"
 
 
 
@@ -85,6 +85,11 @@ cmake ${CMAKE_PATH} \
     -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR}
 make -j4
 make install
+
+
+cd ~/rk3588/rknn_prj/my_prj
+
+scp -r ./install/* root@192.168.158.12:/root/my_deploy_c/install
 
 # # Check if there is a rknn model in the install directory
 # suffix=".rknn"

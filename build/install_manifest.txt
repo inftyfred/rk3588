@@ -1,5 +1,5 @@
-/home/infty/rk3588/rknn_prj/my_prj/install/./rknn_yolov8_demo_zero_copy
-/home/infty/rk3588/rknn_prj/my_prj/install/./rknn_yolov8_demo
+/home/infty/rk3588/rknn_prj/my_prj/install/./my_yolo_visdrone_zero_copy
+/home/infty/rk3588/rknn_prj/my_prj/install/./my_yolo_visdrone
 /home/infty/rk3588/rknn_prj/my_prj/install/model/0000006_00159_d_0000001.jpg
 /home/infty/rk3588/rknn_prj/my_prj/install/model/VisDrone_labels.txt
 /home/infty/rk3588/rknn_prj/my_prj/install/lib/librknnrt.so
